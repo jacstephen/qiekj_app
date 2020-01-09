@@ -23,7 +23,7 @@ class BasePage:
             return WebDriverWait(self.driver,equency).until(
                 ec.visibility_of_element_located(locator))
         except Exception as e:
-            self.driver.save_screenshot('screenshot.png')
+            self.driver.save_screenshot('elementshot.png')
             MyLogger().error('可视元素获取失败:{}'.format(e))
 
     def get_presence_element(self, locator, equency=20):
@@ -32,7 +32,7 @@ class BasePage:
             return WebDriverWait(self.driver, equency).until(
                 ec.presence_of_element_located(locator))
         except Exception as e:
-            self.driver.save_screenshot('test.png')
+            self.driver.save_screenshot('elementshot.png')
             MyLogger().error('进程树元素获取失败:{}'.format(e))
 
     def get_clickable_element(self, locator, equency=20):
@@ -41,8 +41,8 @@ class BasePage:
             return WebDriverWait(self.driver, equency).until(
                 ec.element_to_be_clickable(locator))
         except Exception as e:
-            self.driver.save_screenshot('test.png')
-            MyLogger().error('进程树元素获取失败:{}'.format(e))
+            self.driver.save_screenshot('elementshot.png')
+            MyLogger().error('可点击元素获取失败:{}'.format(e))
 
     @property
     def width(self):
